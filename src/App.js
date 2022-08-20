@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { RequireAuth } from "./hoc/RequireAuth";
+import { About, Home, Blog, NotFound } from "./pages";
+import { Layout } from "./pages/components/Layout";
+import { Post } from "./pages/components/Post";
+import { Login } from "./pages/components/Login";
+import { LoginProvider } from "./hoc/LoginProvider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LoginProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="posts" element={<Blog />} />
+          <Route path="posts/:id" element={<Post />} />
+          <Route
+            path="about"
+            element={
+              <RequireAuth>
+                <About />
+              </RequireAuth>
+            }
+          />
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </LoginProvider>
   );
 }
 
