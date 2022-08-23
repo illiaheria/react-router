@@ -4,6 +4,7 @@ import { About, Home, Blog, NotFound } from "./pages";
 import { Layout } from "./pages/components/Layout";
 import { Post } from "./pages/components/Post";
 import { Login } from "./pages/components/Login";
+import { Counter } from "./pages/components/Counter";
 import { LoginProvider } from "./hoc/LoginProvider";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             }
           />
           <Route path="login" element={<Login />} />
+          <Route path="counter" element={<Counter />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
