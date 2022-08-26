@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchPosts } from "../store/reducers/asyncActions/asyncGetPosts";
+// import { fetchPosts } from "../store/reducers/asyncActions/asyncGetPosts";
+import { fetchPosts } from "../store/toolkitStore/blogSlice";
 import { postsSelector } from "../store/selectors/blogPosts";
 
 export const Blog = () => {

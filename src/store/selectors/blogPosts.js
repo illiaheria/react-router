@@ -1,1 +1,1 @@
-export const postsSelector = (store) => store.blogPosts.posts;
+export const postsSelector = (store) => store.blog.posts;

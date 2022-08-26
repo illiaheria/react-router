@@ -1,1 +1,1 @@
-export const countSelector = (store) => store.main.count;
+export const countSelector = (store) => store.toolkit.count;

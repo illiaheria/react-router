@@ -1,8 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  incrementAction,
-  decrementAction,
-} from "../../store/reducers/mainReducer";
+import { increment, decrement } from "../../store/toolkitStore/toolkitSlice";
 import { countSelector } from "../../store/selectors/mainSelectors";
 
 export const Counter = () => {
@@ -12,8 +9,8 @@ export const Counter = () => {
   return (
     <>
       {count}
-      <button onClick={() => dispatch(incrementAction())}>Add 1</button>
-      <button onClick={() => dispatch(decrementAction())}>Minus 1</button>
+      <button onClick={() => dispatch(increment())}>Add 1</button>
+      <button onClick={() => dispatch(decrement())}>Minus 1</button>
     </>
   );
 };
