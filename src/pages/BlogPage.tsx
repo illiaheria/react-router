@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // import { fetchPosts } from "../store/reducers/asyncActions/asyncGetPosts";
 import { fetchPosts } from "../store/toolkitStore/blogSlice";
 import { postsSelector } from "../store/selectors/blogPosts";
 
-export const Blog = () => {
-  const posts = useSelector(postsSelector);
+export const Blog: React.FC = () => {
+  const [string, setString] = useState<string>("");
+  const posts: IPost2[] = useSelector(postsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {

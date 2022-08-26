@@ -1,22 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 /* eslint-disable no-unused-expressions */
-export const fetchPosts = createAsyncThunk(
-  "posts/fetchPosts",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      if (!response.ok) {
-        throw new Error("Server Error");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+/*eslint no-unused-expressions: "warning"*/
+export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    if (!response.ok) {
+      throw new Error("Server Error");
     }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    // return rejectWithValue(error.message);
   }
-);
+});
 
 const blogSlice = createSlice({
   name: "blogSlice",
@@ -39,5 +35,4 @@ const blogSlice = createSlice({
     },
   },
 });
-
 export default blogSlice.reducer;
